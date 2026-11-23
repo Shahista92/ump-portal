@@ -267,9 +267,9 @@ export default function IsHome({ V }) {
               </div>
             </div>
           </>}
-          <div style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: "5", borderRadius: "12px", padding: "8px 14px", maxWidth: "calc(100% - 24px)", boxSizing: "border-box", background: "rgba(15,23,42,.62)", backdropFilter: "blur(14px) saturate(160%)", WebkitBackdropFilter: "blur(14px) saturate(160%)", border: "1px solid rgba(255,255,255,.22)", boxShadow: "0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18)", display: "flex", flexDirection: "column", alignItems: "stretch", gap: "0", cursor: "default", width: "max-content", maxWidth: "min(380px,calc(100% - 24px))" }}>
+          <div style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: "5", borderRadius: "12px", padding: "8px 14px", maxWidth: "calc(100% - 24px)", boxSizing: "border-box", background: "rgba(15,23,42,.62)", backdropFilter: "blur(14px) saturate(160%)", WebkitBackdropFilter: "blur(14px) saturate(160%)", border: "1px solid rgba(255,255,255,.22)", boxShadow: "0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18)", display: "flex", flexDirection: "column", alignItems: "stretch", gap: "0", cursor: "default", width: "max-content", maxWidth: "calc(100% - 24px)" }}>
             {V.zoneLeg?.legOpen && <>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "5px 14px", maxHeight: "230px", overflowY: "auto", overscrollBehavior: "contain", paddingBottom: "8px", marginBottom: "6px", borderBottom: "1px solid rgba(255,255,255,.18)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,max-content)", gap: "5px 16px", paddingBottom: "8px", marginBottom: "6px", borderBottom: "1px solid rgba(255,255,255,.18)" }}>
                 {L(V.zoneLeg?.items).map((sr, izl) => <React.Fragment key={izl}>
                   <span style={{ display: "flex", alignItems: "center", gap: "7px", fontSize: "12px", color: "#fff", fontWeight: "500", whiteSpace: "nowrap", minWidth: "0", textShadow: "0 1px 2px rgba(0,0,0,.4)" }}>
                     <span style={{ width: "9px", height: "9px", borderRadius: "50%", background: `${A(sr?.c)}`, flexShrink: "0", boxShadow: "0 0 0 2px rgba(255,255,255,.35)" }} />
