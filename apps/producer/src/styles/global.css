@@ -1,0 +1,42 @@
+/* Global rules (fonts, keyframes, map overrides) carried over from the designs. */
+.sc-host{position:relative}
+#root>.sc-host{min-height:100vh}
+
+[data-glass]::placeholder{color:rgba(255,255,255,.8)}
+html,body{margin:0;padding:0;height:100%;background:#F8FAFC;font-family:'Geist',system-ui,sans-serif;color:#0f172a;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+input::placeholder,textarea::placeholder{color:#94a3b8}
+a{color:#043C2C;text-decoration:none}a:hover{color:#14532D;text-decoration:underline}
+input,select,textarea,button{font-family:inherit}
+.maplibregl-ctrl-group{background:rgba(10,59,43,.4)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.22);border-radius:9px!important;overflow:hidden}.maplibregl-ctrl-group button{width:28px!important;height:28px!important;background:transparent!important}.maplibregl-ctrl-group button+button{border-top:1px solid rgba(255,255,255,.16)!important}.maplibregl-ctrl-group button span{filter:invert(1)}
+[data-hm] .maplibregl-ctrl-group{background:rgba(15,23,42,.34)!important;backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.22);border-radius:12px!important;box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18)!important;overflow:hidden}[data-hm] .maplibregl-ctrl-group button{width:28px!important;height:28px!important;background:transparent!important}[data-hm] .maplibregl-ctrl-group{border-radius:8px!important}[data-hm] .maplibregl-ctrl-bottom-right [data-hm] .maplibregl-ctrl{margin:0 10px 10px 0!important}[data-hm] .maplibregl-ctrl-group button+button{border-top:1px solid rgba(255,255,255,.16)!important}[data-hm] .maplibregl-ctrl-group button:hover{background:rgba(255,255,255,.12)!important}[data-hm] .maplibregl-ctrl-group button span{filter:invert(1)}
+
+@keyframes bmIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes bmSpin{to{transform:rotate(360deg)}}@keyframes bmGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.ns,.ns *{scrollbar-width:none}.ns::-webkit-scrollbar,.ns *::-webkit-scrollbar{display:none;width:0;height:0}nav::-webkit-scrollbar{display:none;width:0;height:0}
+
+.nm{filter:invert(1) hue-rotate(180deg);background:#fff}.nm aside,.nm header,.nm main img,.nm main canvas,.nm main video,.nm main .maplibregl-marker,.nm main [style*="background-image"],.nm [data-noinv]{filter:invert(1) hue-rotate(180deg)}.nm main{background:#F4F6F8}.nm aside{background:linear-gradient(180deg,#0B0F14 0%,#11161D 60%,#161C24 100%)!important;box-shadow:inset -1px 0 0 rgba(255,255,255,.05)!important}.nm header{background:#0F141A!important}
+
+body { margin:0; background:#F1F4F2; font-family:Inter, system-ui, sans-serif; }
+  a { color:#1AA34A; text-decoration:none; }
+  a:hover { color:#15913E; }
+  @keyframes wxDrawLine { from { stroke-dashoffset: 460; } to { stroke-dashoffset: 0; } }
+  @keyframes wxGrowBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes wxFadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes wxSunSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes wxRainFall { 0% { transform: translateY(-3px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(9px); opacity: 0; } }
+  @keyframes tzMercury { 0%, 100% { transform: scaleY(.72); } 50% { transform: scaleY(1); } }
+  @keyframes tzDrop { 0% { transform: translateY(-2px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(6px); opacity: 0; } }
+  @keyframes tzSway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+  @keyframes tzArc { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @keyframes wxPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+  @keyframes gaugeFill { from { stroke-dashoffset: 100; } }
+  @keyframes gaugeNeedle { from { transform: rotate(-120deg); } }
+  @keyframes wxChartIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes wxLivePulse { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
+
+@keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  .apexcharts-tooltip, .apexcharts-text, .apexcharts-legend-text { font-family: Poppins, "Segoe UI", sans-serif !important; }
+
+@keyframes wxLivePulse { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
+[contenteditable][data-placeholder]:empty:before{content:attr(data-placeholder);color:#94a3b8}

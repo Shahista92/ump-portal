@@ -1,0 +1,17 @@
+/* Global rules (fonts, keyframes, map overrides) carried over from the designs. */
+.sc-host{position:relative}
+#root>.sc-host{min-height:100vh}
+
+[data-placeholder]:empty:before{content:attr(data-placeholder);color:#94a3b8}
+[data-glass]::placeholder{color:rgba(255,255,255,.8)}
+html,body{margin:0;padding:0;height:100%;background:#F4F7F9;font-family:'Geist',system-ui,sans-serif;color:#0F172A;-webkit-font-smoothing:antialiased}
+input::placeholder,textarea::placeholder{color:#94a3b8}
+[style*="color:#fff"]::placeholder{color:rgba(255,255,255,.7)}
+*{box-sizing:border-box}
+a{color:#0891B2;text-decoration:none}a:hover{color:#0E7490;text-decoration:underline}
+input,select,textarea,button{font-family:inherit}
+@keyframes umpspin{to{transform:rotate(360deg)}}
+[data-thin]::-webkit-scrollbar{width:0;height:0;display:none}[data-thin]::-webkit-scrollbar-track{background:transparent}[data-thin]::-webkit-scrollbar-thumb{background:#d5d9e0;border-radius:99px}[data-thin]::-webkit-scrollbar-thumb:hover{background:#b8bec8}
+.maplibregl-popup-content{font-family:'Geist',sans-serif;border-radius:10px!important;padding:12px 14px!important;box-shadow:0 8px 24px rgba(15,23,42,.25)!important}
+.ump-pop{z-index:20!important}.ump-pop .maplibregl-popup-content{padding:14px!important;border-radius:12px!important;background:rgba(255,255,255,.94)!important;backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border:1px solid rgba(255,255,255,.6);box-shadow:0 16px 40px rgba(15,23,42,.3)!important}.ump-pop .maplibregl-popup-tip{opacity:.94}.ump-tip{z-index:20!important}.ump-tip .maplibregl-popup-content{padding:6px 10px!important;border-radius:7px!important;box-shadow:0 4px 12px rgba(15,23,42,.25)!important}.ump-tip .maplibregl-popup-tip{display:none}
+.maplibregl-ctrl-group{background:rgba(15,23,42,.62)!important;backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.22);border-radius:12px!important;box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18)!important;overflow:hidden}.maplibregl-ctrl-group button{width:28px!important;height:28px!important;background:transparent!important}.maplibregl-ctrl-group{border-radius:8px!important}.maplibregl-ctrl-bottom-right .maplibregl-ctrl{margin:0 10px 10px 0!important}.maplibregl-ctrl-group button+button{border-top:1px solid rgba(255,255,255,.16)!important}.maplibregl-ctrl-group button:hover{background:rgba(255,255,255,.12)!important}.maplibregl-ctrl-group button span{filter:invert(1)}
