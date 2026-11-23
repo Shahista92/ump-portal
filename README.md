@@ -74,6 +74,14 @@ Producer also includes the embedded `DeviceDashboard`, `HLIDashboard`, `DeviceHe
 
 Layout hooks are `data-r="…"` attributes on the shell, sidebar, header, main area, sign-in panels and Help Center.
 
+## Upper Murray zones
+
+`map-data/umi-localities.*` is the source shapefile: 33 Upper Murray localities (GDA94), one zone each. Both portals read a simplified GeoJSON built from it, `public/assets/upper-murray-map.json`, plus the zone list in `src/dc/shared/zones.js`.
+
+- Zones 1–10 are the localities with demo farms (Zone 1 Greg Greg … Zone 10 Tom Groggin); Zones 11–33 follow in map order from the north-west.
+- The Admin Home map labels zones by locality name; the sign-in, Producer Home and Regional maps use zone numbers.
+- If the shapefile changes, regenerate both files and copy them into `apps/admin` and `apps/producer`.
+
 ## Notes
 
 - All data is sample data defined in the component files (`FARMS`, `USERS`, `DEVICES`, etc.). Replace with API calls when a backend is available.
