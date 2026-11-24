@@ -9,6 +9,13 @@ export default function GCharts({ V }) {
     <div style={{ display: "grid", gridTemplateColumns: `${A(V.g?.chCols)}`, gridTemplateRows: `${A(V.g?.chRows)}`, gap: "16px", alignItems: `${A(V.g?.chAlign)}` }}>
       {V.g?.zl && <>
         <div style={{ gridColumn: "1", gridRow: `1 / span ${A(V.g?.zspan)}`, display: "flex", flexDirection: "column", gap: "14px" }}>
+          {V.g?.zagg && <>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "9px 12px", borderRadius: "10px", background: "#F0FDF4", border: "1px solid #BBF7D0", fontSize: "12px", color: "#166534", fontWeight: "500" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ flexShrink: "0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M3 3v18h18M7 15l4-4 3 3 6-7" /></svg>
+              <span style={{ flex: "1", minWidth: "0" }}>{S(V.g?.zagg?.txt)}</span>
+              {V.g?.zagg?.clear && <><button onClick={V.g?.zagg?.clear} style={{ appearance: "none", border: "0", background: "transparent", font: "inherit", margin: "0", padding: "0", cursor: "pointer", color: "#0B6B4B", fontSize: "12px", fontWeight: "700" }}>Reset</button></>}
+            </div>
+          </>}
           {L(V.g?.zl).map((z, i236) => <React.Fragment key={i236}>
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               <button className="scp9" onClick={z?.toggle} style={{ appearance: "none", border: "1px solid #E2E8F0", background: "#fff", font: "inherit", margin: "0", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px", padding: "9px 12px", borderRadius: "10px", color: "#0F172A", textAlign: "left" }}>
@@ -19,11 +26,12 @@ export default function GCharts({ V }) {
               </button>
               {z?.open && <>
                 {L(z?.st).map((st, i237) => <React.Fragment key={i237}>
-                  <button onClick={st?.go} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", textAlign: "left", display: "flex", flexDirection: "column", gap: "5px", padding: "10px 12px", borderRadius: "12px", border: `1.5px solid ${A(st?.bd)}`, background: `${A(st?.bg)}`, color: "#0F172A" }}>
+                  <button onClick={st?.go} style={{ appearance: "none", font: "inherit", margin: "0", cursor: `${A(st?.cur)}`, opacity: `${A(st?.op)}`, position: "relative", textAlign: "left", display: "flex", flexDirection: "column", gap: "5px", padding: "10px 40px 10px 12px", borderRadius: "12px", border: `1.5px solid ${A(st?.bd)}`, background: `${A(st?.bg)}`, color: "#0F172A" }}>
                     <span style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                       <span style={{ display: "inline-flex", alignItems: "center", height: "20px", padding: "0 8px", borderRadius: "999px", fontSize: "11px", fontWeight: "600", background: "#E8F0FE", color: "#1D4ED8" }}>Weather station</span>
                       <span style={{ display: "inline-flex", alignItems: "center", height: "20px", padding: "0 8px", borderRadius: "999px", fontSize: "11px", fontWeight: "600", background: "#F1F5F9", color: "#334155", border: "1px solid #E2E8F0" }}>{S(st?.prov)}</span>
                     </span>
+                    <span role="checkbox" aria-checked={st?.chk ? "true" : "false"} style={{ position: "absolute", top: "10px", right: "12px", width: "18px", height: "18px", borderRadius: "5px", border: `1.5px solid ${A(st?.cbd)}`, background: `${A(st?.cbg)}`, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "3.2", strokeLinecap: "round", strokeLinejoin: "round", opacity: `${A(st?.chk)}` }}><path d="m5 12 5 5 9-10" /></svg></span>
                     <span style={{ fontSize: "13px", fontWeight: "700" }}>{S(st?.lab)}</span>
                     <span style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                       <span style={{ fontSize: "11px", fontWeight: "600", padding: "2px 8px", borderRadius: "999px", background: "#FFF1E6", color: "#C2410C" }}>{S(st?.a)}</span>

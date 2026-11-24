@@ -29,8 +29,8 @@ export default function GHasNavRow({ V }) {
         </div>
       </>}
       {V.g?.sections && <>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: "6px 10px", flexWrap: "nowrap", padding: "4px 12px 0 8px" }}>
-          <div role="tablist" lang="en" style={{ display: "flex", gap: "0", flex: "1 1 0", minWidth: "0", flexWrap: "nowrap", marginRight: "6px", overflowX: "auto", overflowY: "hidden", scrollbarWidth: "none" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: "6px 10px", flexWrap: "wrap", padding: "4px 12px 0 8px" }}>
+          <div role="tablist" lang="en" style={{ display: "flex", gap: "0", flex: "1 1 auto", minWidth: "0", flexWrap: "wrap", marginRight: "6px" }}>
             {L(V.g?.sections).map((s, i20) => <React.Fragment key={i20}>
               <button className="scps scp6" role="tab" aria-selected={s?.sel} onClick={s?.go} style={{ appearance: "none", border: "0", font: "inherit", margin: "0", cursor: "pointer", position: "relative", flex: "0 0 auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "3px", minHeight: "42px", padding: "5px 8px 7px", borderRadius: "8px 8px 0 0", fontSize: "12px", fontWeight: `${A(s?.fw)}`, letterSpacing: ".005em", lineHeight: "1.1", whiteSpace: "nowrap", color: `${A(s?.fg)}`, background: `${A(s?.bg)}`, transition: "color .15s ease,background .15s ease,transform .1s" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ flexShrink: "0", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", color: `${A(s?.ic)}` }}><path d={s?.d} /></svg>

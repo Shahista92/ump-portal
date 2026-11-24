@@ -684,7 +684,7 @@ class Component extends React.Component {
     const fSub = s.fSub || 'heat';
     const isCfg = tab === 'feedlot' && s.iSub === 'config';
     const FL = tab === 'feedlot' && fSub === 'heat' && !isCfg;
-    const showPenDd = FL && s.iSub === 'hist';
+    const showPenDd = false;
     const showWcPenDd = FL && s.iSub === 'water';
     const titles = {
       weather: ['Weather', 'Real-time weather data and forecasting'],
@@ -1096,7 +1096,7 @@ class Component extends React.Component {
       c: s.fday === i ? '#0C6B4C' : '#33453F', fw: s.fday === i ? 600 : 400
     }));
     const fcSel = {
-      title: fcDefs[fi].day, sub: fcDefs[fi].cond + ' · ' + providerShort + ' inputs for ' + site.locale + ' · HLI recalculated hourly',
+      title: fcDefs[fi].day, sub: "Jane's Weather inputs · HLI recalculated hourly",
       hli: this.pts(fser, 1000, 230, 50, 110),
       band: this.pts(fser.map(v => v + 4.5), 1000, 230, 50, 110) + ' ' + this.pts(fser.map(v => v - 4.5), 1000, 230, 50, 110).split(' ').reverse().join(' '),
       ahlu: this.pts(fahlu.map(v => 50 + (v / 200) * 60), 1000, 230, 50, 110),

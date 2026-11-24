@@ -286,8 +286,7 @@ export default function View({ V }) {
                 {L(V.penCards).map((p, i9) => <React.Fragment key={i9}>
                   <div style={{ background: "#fff", border: "1px solid #E4EAE8", borderRadius: "14px", padding: "14px 18px", boxShadow: "0 1px 2px rgba(16,40,34,.04)", display: "flex", flexDirection: "column", gap: "12px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
-                      <div style={{ fontSize: "18px", fontWeight: "600", color: "#1E2A26" }}>{S(p?.name)}</div>
-                      <div style={{ fontSize: "12.5px", color: "#8A9A95", whiteSpace: "nowrap", flex: "0 0 auto" }}>{S(p?.penMeta)}</div>
+                      <div style={{ fontSize: "18px", fontWeight: "600", color: "#1E2A26" }}>Heat load</div>
                       <div style={{ marginLeft: "auto", display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "6px" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
                           {p?.showSw && <>
@@ -303,7 +302,6 @@ export default function View({ V }) {
                               </div>
                             </div>
                           </>}
-                          <div className="scp37" data-act={p?.editAct} title="Edit pen" style={{ flex: "0 0 34px", width: "34px", height: "34px", borderRadius: "9px", border: "1px solid #E8C55A", background: "#FDF3D7", color: "#8A6A1C", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><svg viewBox="0 0 24 24" style={{ width: "15px", height: "15px" }} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h4l10-10a2.5 2.5 0 0 0-3.5-3.5L4.5 16.5z" /></svg></div>
                         </div>
                         <div style={{ fontSize: "11.5px", color: "#A9B7B2", whiteSpace: "nowrap" }}>{"Last sampling time: "}{S(p?.at)}</div>
                       </div>

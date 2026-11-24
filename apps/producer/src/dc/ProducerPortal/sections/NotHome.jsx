@@ -115,7 +115,7 @@ export default function NotHome({ V }) {
             {S(V.g?.zfd?.bl)}
           </button>
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
-            <label style={{ position: "relative", display: "block", width: "150px" }}>
+            <label style={{ position: "relative", display: "block", width: "230px" }}>
               <span style={{ position: "absolute", top: "-6px", left: "9px", padding: "0 4px", background: "#fff", fontSize: "10px", fontWeight: "500", color: "#64748B", lineHeight: "1.2", zIndex: "1" }}>Select Zone</span>
               <select value={V.g?.zfd?.zsel?.value ?? ""} onChange={V.g?.zfd?.zsel?.set} style={{ width: "100%", height: "36px", border: "1px solid #CBD5E1", borderRadius: "8px", outline: "0", background: "#fff", font: "inherit", fontSize: "13px", fontWeight: "600", color: "#0F172A", padding: "0 10px", cursor: "pointer" }}>
                 {L(V.g?.zfd?.zsel?.opts).map((o, i31) => <React.Fragment key={i31}>
@@ -123,6 +123,7 @@ export default function NotHome({ V }) {
                 </React.Fragment>)}
               </select>
             </label>
+            {V.g?.zfd?.dsel && <>
             <label style={{ position: "relative", display: "block", width: "230px" }}>
               <span style={{ position: "absolute", top: "-6px", left: "9px", padding: "0 4px", background: "#fff", fontSize: "10px", fontWeight: "500", color: "#64748B", lineHeight: "1.2", zIndex: "1" }}>{"Select "}{S(V.g?.zfd?.dsel?.lbl)}</span>
               <select value={V.g?.zfd?.dsel?.value ?? ""} onChange={V.g?.zfd?.dsel?.set} style={{ width: "100%", height: "36px", border: "1px solid #CBD5E1", borderRadius: "8px", outline: "0", background: "#fff", font: "inherit", fontSize: "13px", fontWeight: "600", color: "#0F172A", padding: "0 10px", cursor: "pointer" }}>
@@ -131,6 +132,7 @@ export default function NotHome({ V }) {
                 </React.Fragment>)}
               </select>
             </label>
+            </>}
           </div>
         </div>
         {V.g?.zfd?.secs && <>
@@ -462,7 +464,7 @@ export default function NotHome({ V }) {
       <div style={{ borderRadius: "12px", overflow: "hidden", background: "#F8FAFC" }}><DeviceDashboard embed="weather" tab={V.g?.embedTab} device={V.g?.embedDev} /></div>
     </>}
     {V.g?.embedHli && <>
-      <div style={{ padding: "4px 0 8px" }}><HLIDashboard embed={true} section={V.g?.embedHli} farm={V.g?.hliFarm} pen={V.g?.hliPen} infoTick={V.g?.hliTick} provider="Helios" /></div>
+      <div style={{ padding: "4px 0 8px" }}><HLIDashboard embed={true} section={V.g?.embedHli} farm={V.g?.hliFarm} pen={V.g?.hliPen} infoTick={V.g?.hliTick} provider="Jane's Weather (Australia)" /></div>
     </>}
     {V.g?.embedSoil && <>
       <div className="ns" style={{ borderRadius: "12px", overflow: "hidden", background: "#F8FAFC", margin: "0 -16px" }}><DeviceDashboard embed="soil" tab={V.g?.embedTab} device={V.g?.embedDev} /></div>
@@ -933,7 +935,15 @@ export default function NotHome({ V }) {
           </div>
         </>}
         <div style={{ background: "#fff", border: "1px solid #E2E8F0", borderRadius: "12px", padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap" }}>
-          <span style={{ fontSize: "12.5px", color: "#475569" }}>{S(V.g?.pv?.count)}</span>
+          <span style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <span style={{ fontSize: "12.5px", color: "#475569" }}>{S(V.g?.pv?.count)}</span>
+            <label style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12.5px", color: "#475569" }}>
+              Show
+              <select value={V.g?.pv?.per ?? ""} onChange={V.g?.pv?.setPer} style={{ height: "30px", border: "1px solid #CBD5E1", borderRadius: "8px", background: "#fff", font: "inherit", fontSize: "12.5px", fontWeight: "600", color: "#0F172A", padding: "0 8px", cursor: "pointer", outline: "0" }}>
+                {L(V.g?.pv?.perOpts).map((o, ipp) => <React.Fragment key={ipp}><option value={o?.v ?? ""}>{S(o?.l)}</option></React.Fragment>)}
+              </select>
+            </label>
+          </span>
           {V.g?.pv?.multi && <>
             <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <button className="scp2" onClick={V.g?.pv?.first} title="First page" style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", transition: "background .15s,border-color .15s,color .15s,transform .1s", border: "0", background: "transparent", width: "30px", height: "30px", borderRadius: "8px", color: "#043C2C", opacity: `${A(V.g?.pv?.pOpL)}` }}>«</button>
@@ -1006,6 +1016,62 @@ export default function NotHome({ V }) {
               <button onClick={V.g?.fdv?.setYes} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", flex: "1", height: "42px", borderRadius: "10px", border: "1px solid #043C2C", background: `${A(V.g?.fdv?.yesBg)}`, color: `${A(V.g?.fdv?.yesFg)}`, fontSize: "14px", fontWeight: "600" }}>Yes, share</button>
               <button onClick={V.g?.fdv?.setNo} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", flex: "1", height: "42px", borderRadius: "10px", border: "1px solid #043C2C", background: `${A(V.g?.fdv?.noBg)}`, color: `${A(V.g?.fdv?.noFg)}`, fontSize: "14px", fontWeight: "600" }}>No, keep private</button>
             </div>
+            {V.g?.fdv?.shMsg && <><div style={{ display: "flex", gap: "8px", alignItems: "center", padding: "10px 14px", borderRadius: "10px", background: "#ECFDF5", border: "1px solid #86EFAC", color: "#15803D", fontSize: "13px", fontWeight: "600" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ flexShrink: "0", strokeWidth: "2.4", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>{S(V.g?.fdv?.shMsg)}</div></>}
+            {V.g?.fdv?.shForm?.show && <>
+              <div onClick={V.g?.fdv?.shForm?.done ? V.g?.fdv?.shForm?.finish : V.g?.fdv?.shForm?.cancel} style={{ position: "fixed", inset: "0", background: "rgba(10,59,43,.45)", backdropFilter: "blur(4px)", zIndex: "60", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px" }}>
+                {V.g?.fdv?.shForm?.form && <>
+                <div onClick={V.g?.fdv?.shForm?.stop} style={{ background: "#fff", borderRadius: "16px", boxShadow: "0 24px 64px rgba(10,59,43,.28)", width: "100%", maxWidth: "460px", maxHeight: "calc(100vh - 32px)", overflowY: "auto" }}>
+                  <div style={{ padding: "20px 22px 6px" }}>
+                    <div style={{ fontWeight: "700", fontSize: "17px", color: "#0F172A" }}>Choose data to share</div>
+                    <div style={{ fontSize: "13px", color: "#475569", marginTop: "4px", lineHeight: "1.5" }}>{"Select what "}<b style={{ color: "#0F172A" }}>{S(V.g?.fdv?.shForm?.farm)}</b>{" shares with the Upper Murray region. Your farm name is never shown."}</div>
+                  </div>
+                  <div style={{ padding: "12px 22px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                    {L(V.g?.fdv?.shForm?.opts).map((o, ish) => <React.Fragment key={ish}>
+                      <button onClick={o?.go} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", textAlign: "left", width: "100%", display: "flex", alignItems: "center", gap: "12px", padding: "12px 14px", borderRadius: "12px", border: `1.5px solid ${A(o?.bd)}`, background: `${A(o?.bg)}`, color: "#0F172A" }}>
+                        <span role="checkbox" aria-checked={o?.tick ? "true" : "false"} style={{ width: "20px", height: "20px", borderRadius: "6px", border: `1.5px solid ${A(o?.cbd)}`, background: `${A(o?.cbg)}`, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: "0" }}><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "3.2", strokeLinecap: "round", strokeLinejoin: "round", opacity: `${A(o?.tick)}` }}><path d="m5 12 5 5 9-10" /></svg></span>
+                        <span style={{ width: "34px", height: "34px", borderRadius: "10px", background: "#E0F5F1", color: "#0F766E", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: "0" }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }}><path d={o?.ic} /></svg></span>
+                        <span style={{ flex: "1", minWidth: "0" }}>
+                          <span style={{ display: "block", fontSize: "14px", fontWeight: "700" }}>{S(o?.l)}</span>
+                          <span style={{ display: "block", fontSize: "12px", color: "#64748B", lineHeight: "1.4", marginTop: "2px" }}>{S(o?.d)}</span>
+                        </span>
+                      </button>
+                    </React.Fragment>)}
+                  </div>
+                  <div style={{ padding: "8px 22px 20px", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
+                    <button onClick={V.g?.fdv?.shForm?.cancel} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", height: "40px", padding: "0 18px", border: "1px solid #E2E8F0", background: "#fff", color: "#0f172a", borderRadius: "10px", fontSize: "14px", fontWeight: "500" }}>Cancel</button>
+                    <button onClick={V.g?.fdv?.shForm?.save} style={{ appearance: "none", border: "0", font: "inherit", margin: "0", cursor: "pointer", height: "40px", padding: "0 20px", background: `${A(V.g?.fdv?.shForm?.btn)}`, color: "#fff", borderRadius: "10px", fontSize: "14px", fontWeight: "600" }}>Share data</button>
+                  </div>
+                </div>
+                </>}
+                {V.g?.fdv?.shForm?.confirm && <>
+                  <div onClick={V.g?.fdv?.shForm?.stop} style={{ background: "#fff", borderRadius: "16px", boxShadow: "0 24px 64px rgba(10,59,43,.28)", width: "100%", maxWidth: "440px" }}>
+                    <div style={{ padding: "22px 24px 6px", display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                      <span style={{ width: "40px", height: "40px", borderRadius: "11px", background: "#E0F5F1", color: "#0F766E", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: "0" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "1.9", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6z" /><path d="M12 8v5M12 16h.01" /></svg></span>
+                      <div style={{ flex: "1", minWidth: "0" }}>
+                        <div style={{ fontWeight: "700", fontSize: "17px", color: "#0F172A" }}>Confirm data sharing?</div>
+                        <div style={{ fontSize: "13.5px", color: "#475569", marginTop: "6px", lineHeight: "1.5" }}>{"Are you sure you want to share "}<b style={{ color: "#0F172A" }}>{S(V.g?.fdv?.shForm?.what)}</b>{" data from "}<b style={{ color: "#0F172A" }}>{S(V.g?.fdv?.shForm?.farm)}</b>{" with the Upper Murray region? Your farm name is never shown, and you can stop sharing at any time."}</div>
+                      </div>
+                    </div>
+                    <div style={{ padding: "18px 24px 20px", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
+                      <button onClick={V.g?.fdv?.shForm?.back} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", height: "40px", padding: "0 20px", border: "1px solid #E2E8F0", background: "#fff", color: "#0f172a", borderRadius: "10px", fontSize: "14px", fontWeight: "600" }}>Back</button>
+                      <button onClick={V.g?.fdv?.shForm?.confirmShare} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", height: "40px", padding: "0 20px", border: "0", background: "#043C2C", color: "#fff", borderRadius: "10px", fontSize: "14px", fontWeight: "600" }}>Confirm</button>
+                    </div>
+                  </div>
+                </>}
+                {V.g?.fdv?.shForm?.done && <>
+                  <div onClick={V.g?.fdv?.shForm?.stop} style={{ background: "#fff", borderRadius: "16px", boxShadow: "0 24px 64px rgba(10,59,43,.28)", width: "100%", maxWidth: "420px" }}>
+                    <div style={{ padding: "30px 28px 8px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px" }}>
+                      <span style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#ECFDF5", color: "#16A34A", display: "flex", alignItems: "center", justifyContent: "center" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "2.4", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span>
+                      <div style={{ fontWeight: "700", fontSize: "18px", color: "#0F172A" }}>Data shared</div>
+                      <div style={{ fontSize: "13.5px", color: "#475569", lineHeight: "1.55" }}><b style={{ color: "#0F172A" }}>{S(V.g?.fdv?.shForm?.what)}</b>{" data from "}<b style={{ color: "#0F172A" }}>{S(V.g?.fdv?.shForm?.farm)}</b>{" is now shared with the Upper Murray region."}</div>
+                    </div>
+                    <div style={{ padding: "18px 24px 22px", display: "flex", justifyContent: "center" }}>
+                      <button onClick={V.g?.fdv?.shForm?.finish} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", height: "40px", padding: "0 20px", border: "0", background: "#043C2C", color: "#fff", borderRadius: "10px", fontSize: "14px", fontWeight: "600" }}>Done</button>
+                    </div>
+                  </div>
+                </>}
+              </div>
+            </>}
             <div style={{ display: "flex", gap: "10px", alignItems: "flex-start", padding: "11px 14px", borderRadius: "10px", background: "#F0FDF4", border: "1px solid #BBF7D0", fontSize: "12.5px", color: "#166534", lineHeight: "1.5" }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ flexShrink: "0", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6z M9 12l2 2 4-4" /></svg>
               No personal data is shared. Only weather station and soil probe readings are included, and your farm name is never shown.
@@ -1199,17 +1265,22 @@ export default function NotHome({ V }) {
             </div>
           </div>
           <div style={{ overflowX: "auto" }}>
-            <div style={{ minWidth: "720px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "110px minmax(0,2fr) minmax(0,1fr) 140px 120px", gap: "14px", padding: "10px 20px", background: "#F8FAFC", borderTop: "1px solid #F1F5F9", fontSize: "11.5px", fontWeight: "600", color: "#64748b", letterSpacing: ".04em", textTransform: "uppercase" }}>
-                <span>Ticket</span><span>Title</span><span>Topic</span><span>Status</span><span>Updated</span>
+            <div style={{ minWidth: "880px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "110px minmax(0,2fr) minmax(0,1fr) 130px 110px 170px", gap: "14px", padding: "10px 20px", background: "#F8FAFC", borderTop: "1px solid #F1F5F9", fontSize: "11.5px", fontWeight: "600", color: "#64748b", letterSpacing: ".04em", textTransform: "uppercase" }}>
+                <span>Ticket</span><span>Title</span><span>Topic</span><span>Status</span><span>Updated</span><span style={{ textAlign: "right" }}>AxisTech</span>
               </div>
               {L(V.g?.tix?.rows).map((t, itx) => <React.Fragment key={itx}>
-                <button className="scp18" onClick={t?.go} style={{ appearance: "none", border: "0", borderTop: "1px solid #F1F5F9", font: "inherit", margin: "0", cursor: "pointer", width: "100%", textAlign: "left", background: "#fff", display: "grid", gridTemplateColumns: "110px minmax(0,2fr) minmax(0,1fr) 140px 120px", gap: "14px", padding: "12px 20px", alignItems: "center", fontSize: "13.5px", color: "#0F172A" }}>
+                <button className="scp18" onClick={t?.go} style={{ appearance: "none", border: "0", borderTop: "1px solid #F1F5F9", font: "inherit", margin: "0", cursor: "pointer", width: "100%", textAlign: "left", background: "#fff", display: "grid", gridTemplateColumns: "110px minmax(0,2fr) minmax(0,1fr) 130px 110px 170px", gap: "14px", padding: "12px 20px", alignItems: "center", fontSize: "13.5px", color: "#0F172A" }}>
                   <span style={{ fontWeight: "700" }}>{S(t?.id)}</span>
                   <span style={{ minWidth: "0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", fontWeight: "500" }}>{S(t?.title)}</span>
                   <span style={{ color: "#475569" }}>{S(t?.topic)}</span>
                   <span><span style={{ display: "inline-flex", alignItems: "center", height: "24px", padding: "0 10px", borderRadius: "999px", fontSize: "12px", fontWeight: "600", background: `${A(t?.sbg)}`, color: `${A(t?.sfg)}`, whiteSpace: "nowrap" }}>{S(t?.status)}</span></span>
                   <span style={{ color: "#475569" }}>{S(t?.upd)}</span>
+                  <span style={{ display: "flex", justifyContent: "flex-end" }}>
+                    {t?.canFwd && <><span role="button" onClick={t?.forward} className="scp-fwd" style={{ display: "inline-flex", alignItems: "center", gap: "6px", height: "28px", padding: "0 12px", borderRadius: "999px", background: "#043C2C", color: "#fff", fontSize: "12px", fontWeight: "600", whiteSpace: "nowrap", cursor: "pointer" }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "2.2", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M5 12h14M13 6l6 6-6 6" /></svg>Forward to AxisTech</span></>}
+                    {t?.fwdDone && <><span style={{ display: "inline-flex", alignItems: "center", gap: "6px", height: "28px", padding: "0 12px", borderRadius: "999px", background: "#ECFDF5", color: "#15803D", border: "1px solid #BBF7D0", fontSize: "12px", fontWeight: "600", whiteSpace: "nowrap" }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ strokeWidth: "2.6", strokeLinecap: "round", strokeLinejoin: "round" }}><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>Forwarded</span></>}
+                    {t?.noFwd && <><span style={{ fontSize: "12px", color: "#94A3B8" }}>—</span></>}
+                  </span>
                 </button>
               </React.Fragment>)}
               {V.g?.tix?.empty && <>
@@ -1284,6 +1355,33 @@ export default function NotHome({ V }) {
       </div>
     </>}
     {V.g?.ax && <GAx V={V} />}
+    {V.g?.drafts && <>
+      <div style={{ background: "#fff", border: "1px solid #E2E8F0", borderRadius: "16px", boxShadow: "0 1px 2px rgba(15,23,42,.04),0 4px 14px rgba(15,23,42,.03)", padding: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div>
+          <div style={{ fontWeight: "600", fontSize: "15px", color: "#0F172A" }}>Drafted alerts</div>
+          <div style={{ fontSize: "12.5px", color: "#64748B", marginTop: "2px" }}>{"Suggested alerts for this farm\u2019s weather station and soil probe \u00b7 "}{S(V.g?.drafts?.n)}</div>
+        </div>
+        {V.g?.drafts?.msg && <><div style={{ padding: "9px 12px", borderRadius: "10px", background: "#ECFDF5", border: "1px solid #BBF7D0", color: "#15803D", fontSize: "12.5px", fontWeight: "600" }}>{S(V.g?.drafts?.msg)}</div></>}
+        {L(V.g?.drafts?.rows).map((d, idr) => <React.Fragment key={idr}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", padding: "12px 14px", border: "1px dashed #CBD5E1", borderRadius: "12px", background: "#FBFCFD" }}>
+            <div style={{ flex: "1 1 280px", minWidth: "0", display: "flex", flexDirection: "column", gap: "3px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "14px", fontWeight: "700", color: "#0F172A" }}>{S(d?.name)}</span>
+                <span style={{ height: "20px", padding: "0 8px", borderRadius: "999px", background: `${A(d?.kbg)}`, color: `${A(d?.kfg)}`, fontSize: "11px", fontWeight: "600", display: "inline-flex", alignItems: "center" }}>{S(d?.kind)}</span>
+                <span style={{ height: "20px", padding: "0 8px", borderRadius: "999px", background: "#F1F5F9", color: "#475569", fontSize: "11px", fontWeight: "600", display: "inline-flex", alignItems: "center" }}>Draft</span>
+              </div>
+              <span style={{ fontSize: "13px", color: "#334155" }}>{S(d?.desc)}{" \u00b7 "}{S(d?.devName)}</span>
+              <span style={{ fontSize: "12px", color: "#64748B" }}>{S(d?.meta)}</span>
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button onClick={d?.edit} style={{ appearance: "none", font: "inherit", margin: "0", cursor: "pointer", height: "32px", padding: "0 14px", borderRadius: "999px", border: "1px solid #CBD5E1", background: "#fff", color: "#0F172A", fontSize: "12.5px", fontWeight: "600" }}>Edit</button>
+              <button onClick={d?.activate} style={{ appearance: "none", border: "0", font: "inherit", margin: "0", cursor: "pointer", height: "32px", padding: "0 16px", borderRadius: "999px", background: "#043C2C", color: "#fff", fontSize: "12.5px", fontWeight: "600" }}>Activate</button>
+            </div>
+          </div>
+        </React.Fragment>)}
+        {V.g?.drafts?.empty && <><div style={{ padding: "24px", textAlign: "center", color: "#64748B", fontSize: "13px", border: "1px dashed #E2E8F0", borderRadius: "12px" }}>All drafted alerts have been activated.</div></>}
+      </div>
+    </>}
     {V.g?.pol && <>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "12px" }}>
         {L(V.g?.pol?.kpis).map((k, i194) => <React.Fragment key={i194}>

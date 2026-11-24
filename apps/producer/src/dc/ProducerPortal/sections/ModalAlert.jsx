@@ -27,6 +27,16 @@ export default function ModalAlert({ V }) {
               </button>
             </div>
             <div style={{ padding: "4px 12px" }}>
+              {V.na?.dft && <>
+                <div style={{ display: "grid", gridTemplateColumns: "136px minmax(0,1fr)", gap: "12px", alignItems: "start", padding: "4px 0", borderBottom: "1px solid #EEF2F6" }}>
+                  <div style={{ paddingTop: "6px", display: "flex", flexDirection: "column", gap: "1px" }}><span style={{ fontSize: "12.5px", fontWeight: "600", color: "#1E293B" }}>Start from</span><span style={{ fontSize: "11px", color: "#64748B" }}>Drafted alerts</span></div>
+                  <div style={{ minWidth: "0" }}>
+                    <select className="scp1e" value={V.na?.dft?.value ?? ""} onChange={V.na?.dft?.set} style={{ height: "30px", padding: "0 12px", border: "1px solid #D5DDE5", borderRadius: "6px", font: "inherit", fontSize: "12.5px", color: "#0F172A", background: "#fff", width: "100%", maxWidth: "420px", cursor: "pointer" }}>
+                      {L(V.na?.dft?.opts).map((o, idf) => <React.Fragment key={idf}><option value={o?.v ?? ""}>{S(o?.l)}</option></React.Fragment>)}
+                    </select>
+                  </div>
+                </div>
+              </>}
               <div style={{ display: "grid", gridTemplateColumns: "136px minmax(0,1fr)", gap: "12px", alignItems: "start", padding: "4px 0", borderBottom: "1px solid #EEF2F6" }}>
                 <div style={{ paddingTop: "6px", display: "flex", flexDirection: "column", gap: "1px" }}><span style={{ fontSize: "12.5px", fontWeight: "600", color: "#1E293B" }}>Name</span></div>
                 <div style={{ minWidth: "0" }}><input className="scp1z" value={V.na?.name ?? ""} onChange={V.na?.setName} placeholder="Name this alert" style={{ height: "30px", padding: "0 12px", border: "1px solid #D5DDE5", borderRadius: "6px", font: "inherit", fontSize: "13px", outline: "0", background: "#fff", width: "100%", boxSizing: "border-box", color: "#0F172A" }} /></div>
