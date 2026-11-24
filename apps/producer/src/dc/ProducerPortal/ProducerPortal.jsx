@@ -391,7 +391,7 @@ const lgRead = () => { try { return JSON.parse(localStorage.getItem(LG_KEY) || s
 const lgName = e => (e || '').split('@')[0].split(/[._-]+/).filter(Boolean).map(w => w[0].toUpperCase() + w.slice(1)).join(' ') || 'User';
 const LG_GREENS = ['#1F6B4F', '#26785A', '#1A5E46', '#2E8763', '#21714F', '#185440'];
 class Component extends React.Component {
-  state = { authed: lgRead(), lgEmail: 'admin@ump.org.au', lgPw: 'UmpAdmin@2026', lgShow: true,
+  state = { authed: lgRead(), lgEmail: 'admin@ump.org.au', lgPw: 'UmpAdmin@2026', lgShow: false,
     collapsed: typeof window !== 'undefined' && window.innerWidth < 1024, page: 'home', showFc: true, sub: { season: 'dashboard' }, sec: {}, devQ: '', devCats: [], devProvs: [], devDD: null, devCatQ: '', devProvQ: '', devView: 'grid', devPage: 1, devNames: {}, devCatOv: {}, devEdit: null, hwType: 'weather', hwDev: 0, histR: '1W', histHov: null, sel: {}, period: {}, showFc: true, seasons: ['2025–26', '2024–25', '2022–23'], regType: 'weather', zoneFocus: null,
     night: (() => { try { return localStorage.getItem('ump_night') === '1'; } catch (e) { return false; } })(), farm: 0, devMenuId: null, locOpen: false, locView: false, locLL: null, locTitle: '', locAddr: '', devCoords: {}, hDevL: true, collapsed: false, menuOpen: false, modal: null, custOpen: false,
     wid: { forecast: true, devices: false, season: false, alerts: false },

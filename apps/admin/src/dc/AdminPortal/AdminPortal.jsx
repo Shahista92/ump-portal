@@ -222,7 +222,7 @@ const lgRead = () => { try { return JSON.parse(localStorage.getItem(LG_KEY) || s
 const lgName = e => (e || '').split('@')[0].split(/[._-]+/).filter(Boolean).map(w => w[0].toUpperCase() + w.slice(1)).join(' ') || 'User';
 const LG_GREENS = ['#1E4C7A', '#245A8C', '#1A4470', '#2A6699', '#1F5383', '#163C63'];
 class Component extends React.Component {
-  state = { authed: lgRead(), lgEmail: 'admin@ump.org.au', lgPw: 'UmpAdmin@2026', lgShow: true,
+  state = { authed: lgRead(), lgEmail: 'admin@ump.org.au', lgPw: 'UmpAdmin@2026', lgShow: false,
     page: this.props.startPage ?? 'home',
     collapsed: this.props.startCollapsed ?? (typeof window !== 'undefined' && window.innerWidth < 1024),
     farmView: this.props.farmsLayout ?? 'grid',
